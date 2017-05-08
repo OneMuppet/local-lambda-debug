@@ -13,6 +13,6 @@
 ## Run/Debug (vscode)
 * Click on Debug, chose Debug from the drop down and click Play. After this setup you can simply hit F5 to run this.
 
-###More info:
+### More info:
 * https://github.com/serverless/serverless
 * https://github.com/dherault/serverless-offline
