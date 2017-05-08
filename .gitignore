@@ -1,0 +1,7 @@
+.DS_Store
+node_modules
+.idea
+.serverless
+typings
+npm-debug.log
+bitbucket-pipelines.yml

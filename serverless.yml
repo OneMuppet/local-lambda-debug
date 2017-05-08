@@ -1,0 +1,36 @@
+service: onemuppet-local-lambda-debug
+
+package:
+  individually: true
+
+plugins:
+  - serverless-plugin-browserify
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  profile: onemuppet-local-lambda-debug
+  environment: ${file(env.yml):${self:custom.stage}}
+  region: eu-west-1
+  cfLogs: true
+  stage: dev
+  apiKeys:
+    - onemuppet-local-lambda-debug-${opt:stage}
+
+custom:
+  stage: "${opt:stage, self:provider.stage}"
+
+functions:
+  auth:
+    handler: auth/index.authorize
+  echo:
+    handler: echo/index.echo
+    memorySize: 1024
+    timeout: 5
+    events:
+      - http:
+          path: echo
+          method: post
+          cors: true
+          authorizer: auth

@@ -1,0 +1,25 @@
+{
+	"name": "onemuppet-local-lambda-debug",
+	"version": "0.0.1",
+	"description": "Example setup for vscode for debugging AWS lambda functions locally.",
+	"author": "me",
+	"license": "MIT",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/"
+	},
+	"scripts": {
+		"start": "./node_modules/.bin/serverless offline -s dev",
+		"debug": "export SLS_DEBUG=* && node --debug ./node_modules/.bin/serverless offline -s dev",
+		"test": "mocha"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"chai": "3.5.0",
+		"mocha": "3.1.2",
+		"serverless": "1.12.1",
+		"serverless-offline": "^3.13.5",
+		"serverless-plugin-browserify": "1.1.2"
+	}
+}
